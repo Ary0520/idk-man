@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - Create Event</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF4F7B',
+                        'primary-light': '#FF7B9C',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-primary to-primary-light pt-16 pb-20 px-6 lg:px-24">
+        <div class="max-w-[1320px] mx-auto">
+            <!-- Logo and Name -->
+            <div class="flex items-center gap-3 mb-8">
+                <img src="logo.svg" alt="img" class="w-10 h-10">
+                <span class="text-2xl font-bold text-white">logo name</span>
+            </div>
+            <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6">
+                Create New Room Vacancy
+            </h1>
+            <p class="text-white/90 text-lg">
+                Fill in the details below to create a new vacancy listing.
+            </p>
+        </div>
+    </header>
+
+    <!-- Form Section -->
+    <main class="max-w-[1320px] mx-auto px-6 lg:px-24 -mt-10">
+        <form class="bg-white rounded-xl shadow-lg p-8 lg:p-12" action="/createEvent" method="post">
+            <!-- Event Title -->
+            <div class="mb-8">
+                <label for="title" class="block text-gray-700 font-medium mb-2">Price</label>
+                <input 
+                    type="text" 
+                    id="title" 
+                    name="title" 
+                    placeholder="Enter event title"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    required
+                >
+            </div>
+
+            <!-- Date -->
+            <!-- <div class="mb-8">
+                <label for="date" class="block text-gray-700 font-medium mb-2">Event Date</label>
+                <input 
+                    type="date" 
+                    id="date" 
+                    name="date"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    required
+                >
+            </div> -->
+
+            <!-- Organization Name -->
+            <div class="mb-8">
+                <label for="organization" class="block text-gray-700 font-medium mb-2">Hotel Name</label>
+                <div class="relative">
+                    <span class="absolute left-4 top-3 text-gray-500">By</span>
+                    <input 
+                        type="text" 
+                        id="organization" 
+                        name="organisation" 
+                        placeholder="Enter organization name"
+                        class="w-full px-4 py-3 pl-12 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                        required
+                    >
+                </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-8">
+                <label for="description" class="block text-gray-700 font-medium mb-2">Room's description</label>
+                <textarea 
+                    id="description" 
+                    name="description" 
+                    rows="4" 
+                    placeholder="Enter event description"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 resize-none"
+                    required
+                ></textarea>
+            </div>
+
+            <!-- Category -->
+            <!-- <div class="mb-8">
+                <label for="category" class="block text-gray-700 font-medium mb-2">Category</label>
+                <select 
+                    id="category" 
+                    name="category"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 bg-white"
+                    required
+                >
+                    <option value="">Select a category</option>
+                    <option value="education">Education</option>
+                    <option value="healthcare">Healthcare</option>
+                    <option value="environment">Environment</option>
+                    <option value="social">Social Welfare</option>
+                </select>
+            </div> -->
+
+            <!-- Anchor Link -->
+            <div class="mb-8">
+                <label for="link" class="block text-gray-700 font-medium mb-2">hotel's link</label>
+                <input 
+                    type="url" 
+                    id="link" 
+                    name="link" 
+                    placeholder="https://"
+                    class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    required
+                >
+            </div>
+
+            <!-- Image Upload -->
+            <!-- <div class="mb-12">
+                <label for="image" class="block text-gray-700 font-medium mb-2">Event Image</label>
+                <div class="border-2 border-dashed border-gray-300 rounded-lg p-8">
+                    <div class="flex flex-col items-center justify-center">
+                        <svg class="w-12 h-12 text-gray-400 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <p class="text-gray-600 mb-2">Drag and drop your image here, or</p>
+                        <label class="cursor-pointer">
+                            <span class="text-primary hover:text-primary-light font-medium">Browse files</span>
+                            <input type="file" class="hidden" accept="image/*" required>
+                        </label>
+                        <p class="text-gray-500 text-sm mt-2">Maximum file size: 5MB</p>
+                    </div>
+                </div>
+            </div> -->
+
+            <!-- Submit Button -->
+            <div class="flex flex-col sm:flex-row justify-end gap-4">
+                <button type="button" class="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg font-medium          hover:bg-gray-50 transition duration-300">
+                    Cancel
+                </button>
+                <button type="submit" class="px-8 py-3 bg-primary text-white rounded-lg font-medium hover:bg-primary-light          transition duration-300">
+                    Create Event
+                </button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

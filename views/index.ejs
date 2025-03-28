@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>idk man</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#FF4F7B',
+                        'primary-light': '#FF7B9C',
+                    },
+                    backgroundImage: {
+                        'gradient-primary': 'linear-gradient(45deg, #FF4F7B, #FF7B9C)',
+                    }
+                }
+            }
+        }
+    </script>
+    <script>
+          var typeData = new Typed(".role", {
+      strings: [
+        "Full Stack Developer",
+        "Web Developer",
+        "UI-UX Designer",
+        "Backend Developer",
+        "Coder",
+      ],
+      loop: true,
+      typeSpeed: 100,
+      backSpeed: 80,
+      backDelay: 1000,
+    });
+    </script>
+    <style>
+        .typewriter{
+            font-size: 2rem;
+            font-weight: bold;
+            border-right: 3px solid black;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+        }
+        @keyframes blink{
+            50% {border-color: transparent};
+        }
+    </style>
+</head>
+<body class="bg-gradient-primary min-h-screen">
+    <div id="blur-overlay" class="fixed top-0 left-0 w-full h-24 hidden pointer-events-none z-40">
+        <div class="w-full h-full backdrop-blur-md"></div>
+    </div>
+    <!-- Navigation -->
+   <!-- Navigation -->
+<nav class="fixed w-full px-6 lg:px-24 py-6 z-50 bg-transparent">
+    <!-- Main Navbar Container -->
+    <div class="max-w-[1320px] mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <div class="flex items-center gap-3">
+            <img src="logo.svg" alt="img" class="w-10 h-10">
+            <span class="text-white text-2xl font-bold">logoname</span>
+        </div>
+
+        <!-- Desktop Menu (hidden on mobile) -->
+        <div class="hidden lg:flex items-center gap-8">
+            <a href="#" class="text-black font-medium hover:opacity-80">Features</a>
+            <a href="#" class="text-black font-medium hover:opacity-80">Overview</a>
+            <a href="#" class="text-black font-medium hover:opacity-80">Team</a>
+            <a href="#" class="text-black font-medium hover:opacity-80">Blog</a>
+            <a href="#" class="text-black font-medium hover:opacity-80">Contact</a>
+        </div>
+
+        <!-- Desktop CTA Button (hidden on mobile) -->
+        <a href="/register">
+            <button class="hidden lg:block px-8 py-3 border-2 border-white text-black rounded-lg font-medium hover:bg-white hover:text-primary transition duration-300">
+                Get Started
+            </button>
+        </a>
+
+        <!-- Mobile Menu Button (visible only on mobile) -->
+        <button class="lg:hidden text-white" id="mobileMenuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+        </button>
+    </div>
+</nav>
+<!-- Mobile Menu Overlay -->
+<div class="fixed inset-0 bg-black opacity-0 pointer-events-none transition-opacity duration-300" id="mobileMenuOverlay"></div>
+
+<!-- Mobile Menu Panel -->
+<div class="lg:hidden fixed top-0 right-0 w-[80%] h-screen bg-primary transform translate-x-full transition-transform duration-300 ease-in-out z-[60]" id="mobileMenu">
+    <div class="p-6">
+        <!-- Close Button -->
+        <button class="text-white mb-8" id="closeMenuBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+        </button>
+
+        <!-- Mobile Menu Links -->
+        <div class="flex flex-col gap-6">
+            <a href="#" class="text-white font-medium text-lg">Features</a>
+            <a href="#" class="text-white font-medium text-lg">Overview</a>
+            <a href="#" class="text-white font-medium text-lg">Team</a>
+            <a href="#" class="text-white font-medium text-lg">Blog</a>
+            <a href="#" class="text-white font-medium text-lg">Contact</a>
+            <a href="/register">
+                <button class="mt-4 px-8 py-3 border-2 border-black  text-black rounded-lg font-medium hover:bg-white hover:text-primary transition duration-300">
+                    Get Started
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-6 lg:px-24">
+        <div class="max-w-[1320px] mx-auto flex flex-col lg:flex-row items-center gap-16">
+            <!-- Left Content -->
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
+               <div id="typewriter" class="flex h-10 w-max-content  typewriter"></div>
+               <script>
+                const words = ["hello", "one", "crazy"];
+                let index = 0;
+                const typewriter = document.getElementById("typewriter");
+                
+                function typeEffect(word, callback) {
+                    let i = 0;
+                    typewriter.textContent = "";
+                    const typingInterval = setInterval(() => {
+                        if (i < word.length) {
+                            typewriter.textContent += word[i];
+                            i++;
+                        } else {
+                            clearInterval(typingInterval);
+                            setTimeout(() => eraseEffect(word, callback), 1000);
+                        }
+                    }, 150);
+                }
+                
+                function eraseEffect(word, callback) {
+                    let i = word.length;
+                    const erasingInterval = setInterval(() => {
+                        if (i > 0) {
+                            typewriter.textContent = word.substring(0, i - 1);
+                            i--;
+                        } else {
+                            clearInterval(erasingInterval);
+                            setTimeout(callback, 500);
+                        }
+                    }, 100);
+                }
+                
+                function loopWords() {
+                    typeEffect(words[index], () => {
+                        index = (index + 1) % words.length;
+                        loopWords();
+                    });
+                }
+                
+                loopWords();
+            </script>
+
+                <p class="text-white text-lg opacity-90 mb-12 max-w-[520px]">
+                    "Find your perfect stay – seamless booking, unbeatable comfort."
+                </p>
+                <div class="flex gap-4 justify-center lg:justify-start">
+                    <button class="px-8 py-4 bg-white text-gray-900 rounded-lg font-medium hover:bg-opacity-90 transition duration-300">
+                        App Store
+                    </button>
+                    <button class="px-8 py-4 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-primary transition duration-300">
+                        Google Play
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right Images -->
+            <div class="w-full lg:w-1/2 relative">
+                <div class="relative w-full h-[600px]">
+                    <!-- First Phone -->
+                    <img src="/images/img2.jpeg" alt="App Screenshot" 
+                         class="absolute left-0 lg:left-10 top-0 w-[280px] rounded-3xl shadow-2xl">
+                    <!-- Second Phone -->
+                    <img src="/images/img3.jpeg" alt="App Screenshot" 
+                         class="absolute right-0 top-16 w-[280px] rounded-3xl shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Features Section -->
+<section class="bg-white py-24 px-6 lg:px-24">
+    <div class="max-w-[1320px] mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <span class="text-primary font-medium text-lg mb-4 block">
+                <!-- FEATURES -->
+            </span>
+            <h2 class="text-3xl lg:text-5xl font-bold text-gray-900 max-w-3xl mx-auto leading-tight">
+                An Experience You Wouldn't Forget.
+            </h2>
+            <p class="text-gray-600 mt-6 max-w-2xl mx-auto text-lg">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem maiores optio alias nemo quibusdam, quam quas reprehenderit voluptatum libero, neque reiciendis natus. Tenetur, facere aspernatur!
+            </p>
+        </div>
+
+        <!-- Features Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Feature Card 1 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-lg mb-6 flex items-center justify-center">
+                    <!-- You can replace this with your actual icon -->
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Kerela Tourism
+                </h3>
+                <p class="text-gray-600">
+                   sample text
+                </p>
+            </div>
+
+            <!-- Feature Card 2 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-lg mb-6 flex items-center justify-center">
+                    <!-- You can replace this with your actual icon -->
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Jaipur Tourism
+                </h3>
+                <p class="text-gray-600">
+                    sample text
+                </p>
+            </div>
+
+            <!-- Feature Card 3 -->
+            <div class="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+                <div class="w-16 h-16 bg-primary rounded-lg mb-6 flex items-center justify-center">
+                    <!-- You can replace this with your actual icon -->
+                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 mb-4">
+                    Manipal Tourism
+                </h3>
+                <p class="text-gray-600">
+                    sample text
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Team Section -->
+<section class="bg-gray-50 py-24 px-6 lg:px-24">
+    <div class="max-w-[1320px] mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <span class="text-primary font-medium text-lg mb-4 block">
+                <!-- TEAM -->
+            </span>
+            <h2 class="text-3xl lg:text-5xl font-bold text-gray-900 mb-6">
+                Top Rated Hotels
+            </h2>
+            <p class="text-gray-600 max-w-2xl mx-auto text-lg">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ea eos distinctio tenetur! Id quaerat officia cum labore magni vitae dolorem.
+            </p>
+        </div>
+
+        <!-- Team Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Team Member 1 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <div class="h-80 overflow-hidden">
+                    <img src="/images/img3.jpeg" 
+                         alt="#" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        sample
+                    </h3>
+                    <p class="text-primary">
+                        sample
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member 2 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <div class="h-80 overflow-hidden">
+                    <img src="/images/img2.jpeg" 
+                         alt="#" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        sample
+                    </h3>
+                    <p class="text-primary">
+                        sample
+                    </p>
+                </div>
+            </div>
+
+            <!-- Team Member 3 -->
+            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition duration-300">
+                <div class="h-80 overflow-hidden">
+                    <img src="/images/img4.jpeg" 
+                         alt="#" 
+                         class="w-full h-full object-cover hover:scale-105 transition duration-300">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">
+                        sample
+                    </h3>
+                    <p class="text-primary">
+                        sample
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer Section -->
+<footer class="bg-[#0B132A] text-white pt-24 pb-8 px-6 lg:px-24">
+    <div class="max-w-[1320px] mx-auto">
+        <!-- Main Footer Content -->
+        <div class="grid grid-cols-1 lg:grid-cols-5 gap-12 mb-16">
+            <!-- Company Info -->
+            <div class="lg:col-span-2">
+                <div class="flex items-center gap-3 mb-6">
+                    <img src="logo.svg" alt="img" class="w-10 h-10">
+                    <span class="text-2xl font-bold">logo name</span>
+                </div>
+                <p class="text-gray-400 mb-6">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis, iusto.
+                </p>
+                <p class="text-sm text-gray-500">
+                    Lorem ipsum dolor sit amet.
+                </p>
+            </div>
+
+            <!-- Solutions -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Solutions</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Marketing</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Analytics</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Commerce</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Insights</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Promotion</a></li>
+                </ul>
+            </div>
+
+            <!-- Support -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Support</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Documentation</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Guides</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">API Status</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Live Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Company -->
+            <div>
+                <h3 class="text-lg font-semibold mb-6">Company</h3>
+                <ul class="space-y-4">
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Our Blog</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Jobs</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Press</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-primary transition">Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <div class="border border-gray-800 rounded-xl p-8 mb-16">
+            <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4">Subscribe To Our Newsletter</h3>
+                    <p class="text-gray-400">The latest news, articles, and resources, sent to your inbox weekly.</p>
+                </div>
+                <div class="flex w-full lg:w-auto flex-col sm:flex-row gap-4">
+                    <input 
+                        type="email" 
+                        placeholder="Your email address" 
+                        class="px-6 py-4 bg-gray-800 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-primary w-full sm:w-80"
+                    >
+                    <button class="px-8 py-4 bg-primary rounded-lg font-medium hover:bg-opacity-90 transition whitespace-nowrap">
+                        Subscribe
+                    </button>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+</footer>
+
+<script src="/js/script.js"></script>
+
+
+</body>
+</html> 
